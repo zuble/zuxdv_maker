@@ -2,8 +2,11 @@ import subprocess, datetime, cv2
 import os, os.path as osp
 
 import streamlit as st
-from main import state  
 
+state=None
+def init(s):
+    global state
+    state = s
 
 def state_upd():
     state.sure_del = False
@@ -88,7 +91,7 @@ def cut_video(dr=True):
             state.exec_cut = False
             state.prep_cut = False
             
-    return cmd
+    return f"ffmpeg -ss {ss} -i {ip} -t {t} -c:v copy -c:a copy {op}"
 
     ## Run FFmpeg command
     #cmd = (

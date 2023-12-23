@@ -4,7 +4,7 @@ import os, os.path as osp
 import streamlit as st
 from utils import *
 state = st.session_state
-
+init(state)
 
 #####################################
 ## STATE VARS
